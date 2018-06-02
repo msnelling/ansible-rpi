@@ -1,0 +1,13 @@
+---
+- name: Reboot | reboot the system
+  shell: shutdown -r +0 'Ansible Reboot triggered'
+  async: 1
+  poll: 0
+  ignore_errors: true
+  when: package_upgrade.changed
+  
+- name: Reboot | wait for system to come back
+  wait_for_connection:
+    connect_timeout: 20
+    sleep: 5
+    timeout: 60

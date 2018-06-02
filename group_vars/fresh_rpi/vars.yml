@@ -1,0 +1,6 @@
+---
+mac_mapping:
+  b8-27-eb-03-3b-b3:
+    hostname: node0
+provisioning_username: "{{ vault_ansible_username }}"
+provisioning_password: "{{ vault_ansible_password }}"

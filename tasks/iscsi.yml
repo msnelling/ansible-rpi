@@ -1,0 +1,10 @@
+---
+- name: RPi | install packages
+  apt:
+    name: open-iscsi
+    state: latest
+
+- name: RPi | start service iSCSI service, if not running
+  service:
+    name: open-iscsi
+    state: started
