@@ -1,7 +1,7 @@
 #!/bin/bash
 
-INVENTORY=fresh_rpi.yml
-SITE=site.yml
+INVENTORY=fresh_rpi_hosts.yml
+SITE=fresh_rpi_site.yml
 VAULT_PASSWORD_FILE=.vault_pass
 
 echo "Initialising a new Raspberry Pi..."

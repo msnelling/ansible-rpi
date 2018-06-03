@@ -1,0 +1,10 @@
+---
+all:
+    children:
+      provisioning:
+        children:
+          nodes:
+            hosts:
+              node0.local:
+            vars:
+              ansible_user: "{{ provisioning_username }}"

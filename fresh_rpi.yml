@@ -1,9 +1,0 @@
----
-all:
-  children:
-    fresh_rpi:
-      hosts:
-        raspberrypi:
-      vars:
-        ansible_user: pi
-    
