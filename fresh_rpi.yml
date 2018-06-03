@@ -6,3 +6,4 @@ all:
         raspberrypi:
       vars:
         ansible_user: pi
+    

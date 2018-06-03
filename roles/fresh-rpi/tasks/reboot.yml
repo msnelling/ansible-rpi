@@ -4,7 +4,6 @@
   async: 1
   poll: 0
   ignore_errors: true
-  when: package_upgrade.changed
   
 - name: Reboot | wait for system to come back
   wait_for_connection:

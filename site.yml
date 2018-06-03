@@ -1,6 +1,5 @@
 ---
 - hosts: fresh_rpi
   become: true
-  tasks:
-  - include_tasks: tasks/rpi_init.yml
-  - include_tasks: tasks/upgrade.yml
+  roles:
+  - fresh-rpi
