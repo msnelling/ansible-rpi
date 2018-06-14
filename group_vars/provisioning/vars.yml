@@ -1,4 +1,0 @@
----
-provisioning_username: "{{ vault_provisioning_username }}"
-provisioning_password: "{{ vault_provisioning_password }}"
-provisioning_authorized_key: "{{ vailt_provisioning_authorized_key }}"
