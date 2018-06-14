@@ -1,0 +1,6 @@
+---
+- name: Prepare | update apt cache
+  apt:
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes

@@ -1,0 +1,4 @@
+---
+ansible_user: "{{ provisioning_username }}"
+ansible_become_user: "{{ provisioning_username }}"
+ansible_become_pass: "{{ provisioning_password }}"
