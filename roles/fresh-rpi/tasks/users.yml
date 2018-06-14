@@ -1,0 +1,14 @@
+---
+- name: Users | add the Ansible user
+  user:
+    name: "{{ provisioning_username }}"
+    shell: /bin/bash
+    append: yes
+    groups: sudo
+    password: "{{ provisioning_password | password_hash( 'sha512', 65534 | random(seed=inventory_hostname) | string ) }}"
+
+- name: Users | set authorized key
+  authorized_key:
+    user: "{{ provisioning_username }}"
+    state: present
+    key: "{{ provisioning_authorized_key }}"

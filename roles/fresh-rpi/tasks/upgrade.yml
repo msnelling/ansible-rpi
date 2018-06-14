@@ -4,7 +4,3 @@
     update_cache: true
     upgrade: dist
   register: package_upgrade
-
-- name: Upgrade | reboot the system
-  include_tasks: reboot.yml
-  when: package_upgrade.changed

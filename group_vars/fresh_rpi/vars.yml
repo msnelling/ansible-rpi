@@ -1,4 +1,5 @@
 ---
+ansible_become_pass: raspberry
 mac_mapping:
   b8-27-eb-03-3b-b3:
     hostname: node0
