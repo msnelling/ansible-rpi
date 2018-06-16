@@ -1,4 +1,9 @@
 ---
+- name: Users | install mkpasswd 
+  apt:
+    name: whois
+    state: present
+
 - name: Users | generate encrypted password
   shell: echo '{{ provisioning_password }}' | mkpasswd --method=sha-512 --stdin --salt='{{ inventory_hostname | hash('sha1') | truncate(16) }}'
   register: encrypted_password
@@ -10,7 +15,7 @@
     append: yes
     groups: sudo
     #password: "{{ provisioning_password | password_hash( 'sha512', 65534 | random(seed=inventory_hostname) | string ) }}"
-    password: "{{encrypted_password.stdout_lines}}"
+    password: "{{ encrypted_password.stdout_lines[0] }}"
 
 - name: Users | set authorized key
   authorized_key:
