@@ -1,0 +1,30 @@
+---
+- name: Kubeadm | add repository key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Kubeadm | add repository
+  apt_repository:
+    #repo: deb http://apt.kubernetes.io/ kubernetes-{{ ansible_distribution_release }} main
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    update_cache: yes
+    state: present
+
+- name: Kubeadm | install packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - nfs-common
+  - kubelet
+  - kubeadm
+  - kubectl
+
+- name: Kubeadm | disable kubelet fail-on-swap
+  lineinfile:
+    path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    regexp: "^Environment=\"KUBELET_EXTRA_ARGS="
+    insertbefore: "^ExecStart=$"
+    line: Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
+    state: present
