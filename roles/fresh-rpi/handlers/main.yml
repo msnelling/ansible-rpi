@@ -1,5 +1,5 @@
 ---
-- name: Reboot | reboot the system
+- name: restart system
   shell: shutdown -r +0 'Ansible Reboot triggered'
   async: 1
   poll: 0
