@@ -7,21 +7,16 @@
   set_fact:
     hostname: "{{ mac_mapping[mac_address].hostname }}"
 
-- name: Hostname | get the fqdn
-  set_fact:
-    fqdn: "{{ hostname }}.{{ domain }}"
-
 - name: Hostname | set the hostname
   hostname:
     name: "{{ hostname }}"
-  register: set_hostname
   tags: hostname
 
 - name: Hostname | add myself to /etc/hosts
   lineinfile:
     dest: /etc/hosts
     regexp: "^{{ default_ip }}"
-    line: "{{ default_ip }}\t{{ fqdn }} {{ hostname }}"
+    line: "{{ default_ip }}\t{{ hostname }}"
     state: present
   notify:
     - restart system
