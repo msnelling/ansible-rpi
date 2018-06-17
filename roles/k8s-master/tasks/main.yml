@@ -1,0 +1,6 @@
+- include_tasks: prepare.yml
+
+- include_tasks: ca.yml
+  when: use_external_ca
+
+- include_tasks: init.yml

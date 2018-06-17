@@ -3,3 +3,8 @@
   become: true
   roles:
   - k8s
+
+- hosts: k8smaster
+  become: true
+  roles:
+  - k8s-master

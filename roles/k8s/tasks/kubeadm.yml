@@ -24,7 +24,7 @@
 - name: Kubeadm | disable kubelet fail-on-swap
   lineinfile:
     path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    regexp: "^Environment=\"KUBELET_EXTRA_ARGS="
-    insertbefore: "^ExecStart=$"
-    line: Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
+    regexp: '^Environment="KUBELET_EXTRA_ARGS='
+    insertbefore: '^ExecStart=$'
+    line: 'Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"'
     state: present

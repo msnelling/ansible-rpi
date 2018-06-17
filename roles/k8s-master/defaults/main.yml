@@ -1,0 +1,5 @@
+---
+work_directory: /tmp/work/k8s
+kubeadm_config: "{{ work_directory }}/kubeadm_config.yaml"
+use_external_ca: false
+use_custom_api_binding: false

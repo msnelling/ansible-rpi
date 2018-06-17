@@ -1,0 +1,11 @@
+---
+- name: Prepare | create ansible work directory
+  file:
+    path: "{{ work_directory }}"
+    state: directory
+
+- name: Prepare | update apt cache
+  apt:
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes

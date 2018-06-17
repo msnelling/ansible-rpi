@@ -1,4 +1,24 @@
 ---
+- name: Prepare | append cgroups to cmdline.txt
+  lineinfile:
+    path: /boot/cmdline.txt
+    regexp: '^(.+)(?<! cgroup_enable=cpuset cgroup_enable=memory)$'
+    line: '\1 cgroup_enable=cpuset cgroup_enable=memory'
+    backrefs: yes
+    state: present
+  notify:
+    - restart system
+    - wait for system restart
+  
+- name: Prepare | turn off swap
+  command: dphys-swapfile swapoff
+
+- name: Prepare | uninstall swap file
+  command: dphys-swapfile uninstall
+
+- name: Prepare | remove swap from startup
+  command: update-rc.d dphys-swapfile remove
+
 - name: Prepare | update apt cache
   apt:
     update_cache: yes

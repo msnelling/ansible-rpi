@@ -1,0 +1,19 @@
+---
+- name: CA | create /etc/kubernetes/pki directory
+  file:
+    path: /etc/kubernetes/pki
+    state: directory
+
+- name: CA | copy CA certificate
+  copy:
+    content: "{{ ca_crt | b64decode }}"
+    dest: /etc/kubernetes/pki/ca.crt
+    mode: 0644
+
+- name: CA | copy CA private key
+  copy:
+    content: "{{ ca_key | b64decode }}"
+    dest: /etc/kubernetes/pki/ca.key
+    owner: root
+    group: root
+    mode: 0600

@@ -1,0 +1,20 @@
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+{% if use_custom_api_binding %}
+api:
+  advertiseAddress: {{ apiserver_ipv4 }}
+  bindPort: {{ apiserver_port }}
+{% endif %}
+networking:
+  podSubnet: 10.244.0.0/16
+authorizationModes:
+- Node
+- RBAC
+apiServerExtraArgs:
+  service-node-port-range: 1-32767
+{% if use_external_ca %}
+apiServerCertSANs:
+- {{ apiserver_fqdn }}
+{% endif %}
+#featureGates:
+#  CoreDNS: true
