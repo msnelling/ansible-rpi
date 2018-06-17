@@ -1,0 +1,2 @@
+https://gist.github.com/alexellis/fdbc90de7691a1b9edb545c17da2d975
+https://github.com/arbabnazar/ansible-roles/blob/master/common/templates/unattended/10periodic.j2
