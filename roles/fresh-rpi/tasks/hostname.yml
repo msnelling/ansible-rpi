@@ -1,12 +1,4 @@
 ---
-- name: Hostname | get the MAC address
-  set_fact:
-    mac_address: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress | regex_replace(':', '-') }}"
-
-- name: Hostname | get the hostname
-  set_fact:
-    hostname: "{{ mac_mapping[mac_address].hostname }}"
-
 - name: Hostname | set the hostname
   hostname:
     name: "{{ hostname }}"

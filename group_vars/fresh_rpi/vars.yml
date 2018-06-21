@@ -3,3 +3,8 @@ ansible_become_pass: raspberry
 mac_mapping:
   b8-27-eb-03-3b-b3:
     hostname: node0
+    interface: eth0
+    address: 192.168.1.6
+    subnet: 255.255.255.0
+    gateway: 192.168.1.1
+    dns_servers: 192.168.1.1

@@ -1,0 +1,13 @@
+---
+- name: Facts | get the MAC address
+  set_fact:
+    mac_address: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress | regex_replace(':', '-') }}"
+
+- name: Facts | get the mapped facts
+  set_fact:
+    hostname: "{{ mac_mapping[mac_address].hostname }}"
+    interface: "{{ mac_mapping[mac_address].interface }}"
+    address: "{{ mac_mapping[mac_address].address }}"
+    gateway: "{{ mac_mapping[mac_address].gateway }}"
+    subnet: "{{ mac_mapping[mac_address].subnet }}"
+    dns_servers: "{{ mac_mapping[mac_address].dns_servers }}"
