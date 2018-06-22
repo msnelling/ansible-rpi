@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 # Inform the DHCP server of our hostname for DDNS.
 hostname
 
@@ -26,7 +28,9 @@ require dhcp_server_identifier
 # Generate Stable Private IPv6 Addresses instead of hardware based ones
 slaac private
 
-interface {{ interface }}
-static ip_address={{ address }}
-static routers={{ gateway }}
-static domain_name_servers={{ dns_servers }}
+{% for item in interfaces %}
+interface {{ item.interface }}
+static ip_address={{ item.address }}
+static routers={{ item.gateway }}
+static domain_name_servers={{ item.dns_servers }}
+{% endfor %}
