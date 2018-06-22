@@ -3,5 +3,5 @@
 - include_tasks: upgrade.yml
 - include_tasks: users.yml
 - include_tasks: network.yml
-#- include_tasks: hostname.yml
+- include_tasks: hostname.yml
 - include_tasks: timezone.yml

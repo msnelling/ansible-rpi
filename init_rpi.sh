@@ -7,4 +7,4 @@ VAULT_PASSWORD_FILE=.vault_pass
 
 echo "Initialising a new Raspberry Pi..."
 
-ansible-playbook --inventory="$INVENTORY" --ask-pass --user="$CONNECT_USER" --vault-password-file="$VAULT_PASSWORD_FILE" "$SITE" -vvv
+ansible-playbook --inventory="$INVENTORY" --ask-pass --user="$CONNECT_USER" --vault-password-file="$VAULT_PASSWORD_FILE" "$SITE" "$@"
