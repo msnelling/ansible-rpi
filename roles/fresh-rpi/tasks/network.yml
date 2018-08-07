@@ -1,7 +1,0 @@
----
-- name: Network | set static IP addresses in dhcpcd
-  template:
-    src: dhcpcd.conf.j2
-    dest: /etc/dhcpcd.conf
-  notify:
-    - restart system
