@@ -5,3 +5,5 @@ mac_mapping:
     hostname: rpi
   b8-27-eb-03-3b-b3:
     hostname: bastion
+  b8-27-eb-01-3a-d5:
+    hostname: hydra1
