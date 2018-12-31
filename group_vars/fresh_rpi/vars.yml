@@ -6,4 +6,6 @@ mac_mapping:
   b8-27-eb-03-3b-b3:
     hostname: bastion
   b8-27-eb-01-3a-d5:
-    hostname: hydra1
+    hostname: hydra
+  b8-27-eb-bd-60-e3:
+    hostname: hydra-node1
